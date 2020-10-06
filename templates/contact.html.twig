@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Contact us' %}
+
+{% block content %}
+    <h1>Contact us</h1>
+    <p>Simple example contact form</p>
+
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{#    {{ form(form) }}#}
+    {{ form_start(form) }}
+
+    {{ form_errors(form) }}
+    {{ form_help(form) }}
+
+    {{ form_widget(form) }}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    {{ form_end(form) }}
+{% endblock %}
